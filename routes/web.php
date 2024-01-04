@@ -28,3 +28,5 @@ Route::post('/signOut', [AuthController::class, 'signOut'])->name('signOut');
 
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+Route::get('/create', [AdminController::class, 'showCreateUser'])->name('showCreateUser');
+Route::post('/store', [AdminController::class, 'store'])->name('store');
