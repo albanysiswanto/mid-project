@@ -28,5 +28,18 @@ Route::post('/signOut', [AuthController::class, 'signOut'])->name('signOut');
 
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+// Create new user
 Route::get('/create', [AdminController::class, 'showCreateUser'])->name('showCreateUser');
 Route::post('/store', [AdminController::class, 'store'])->name('store');
+
+// Edit user
+Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+Route::patch('/update/{id}', [AdminController::class, 'update'])->name('update');
+
+// Delete user
+Route::delete('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
+
+// Detail user
+Route::get('/detail/{id}', [AdminController::class, 'detail'])->name('detail');
+

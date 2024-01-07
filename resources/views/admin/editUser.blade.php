@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Create User</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @include('layouts.style')
@@ -89,60 +89,62 @@
         </div>
     </div>
     <!-- Main Menu area End-->
-     <!-- Data Table area Start-->
-     <div class="data-table-area">
+
+    <!-- Form Examples area start-->
+    <div class="form-example-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="data-table-list">
-                        <div class="basic-tb-hd">
-                            <h2>User List</h2>
-                            <p>Seluruh User di tampilkan di tabel ini.</p>
+                    <div class="form-example-wrap">
+                        <div class="cmp-tb-hd">
+                            <h2>Create User</h2>
+                            <p>Mohon mengisi formulir input pengguna dengan cermat dan benar untuk memastikan bahwa informasi yang disediakan akurat dan dapat diproses dengan baik. Pastikan setiap kolom diisi sesuai dengan petunjuk di bawah ini untuk memastikan keberhasilan dalam pembuatan akun pengguna.</p>
                         </div>
-                        <div class="table-responsive">
-                            <table id="data-table-basic" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Full Name</th>
-                                        <th>Email</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($getAll as $s)
-                                    <tr>
-                                        <td>1</td>
-                                        <td> {{$s->firstName}} {{$s->lastName}}</td>
-                                        <td> {{$s->email}} </td>
-                                        <td>
-                                            <a class="btn btn-primary" href="{{route('detail', $s->id)}}"><i class="notika-icon notika-eye"></i></a>
-                                            <a class="btn btn-warning" href="{{route('edit', $s->id)}}"><i class="notika-icon notika-edit"></i></a>
-                                            <form action="{{route('delete',$s->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="notika-icon notika-trash"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Full Name</th>
-                                        <th>Email</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                        <form action="{{route('update', $student->id)}}" method="post">
+                            @csrf
+                            @method('PATCH')
+                            <div class="form-example-int">
+                                <div class="form-group">
+                                    <label>Firt Name</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" value="{{ $student->firstName }}" name="firstName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int">
+                                <div class="form-group">
+                                    <label>List Name</label>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control input-sm" value="{{ $student->lastName }}" name="lastName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <div class="nk-int-st">
+                                        <input type="email" class="form-control input-sm" value="{{ $student->email }}" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int mg-t-15">
+                                <div class="form-group">
+                                    <label>Bio</label>
+                                    <div class="nk-int-st">
+                                        <textarea name="bio" cols="100" rows="0">{{ $student->bio }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-example-int mg-t-15">
+                                <button type="submit" class="btn btn-success notika-btn-success">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Data Table area End-->
+    <!-- Form Examples area End-->
 
     <!-- Start Footer area-->
     <div class="footer-copyright-area">

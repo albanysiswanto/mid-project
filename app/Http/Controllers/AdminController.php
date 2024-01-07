@@ -11,14 +11,15 @@ class AdminController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('admin.dashboard');
+            $getAll = Student::all();
+            return view('admin.dashboard', compact('getAll'));
         }
 
         return redirect("/")->withSuccess('You are not allowed to access');
     }
 
     public function showCreateUser(){
-        return view('admin.createUser');
+        return view('admin.createUser',);
     }
 
     public function store(Request $request){
@@ -38,5 +39,32 @@ class AdminController extends Controller
 
 
         return redirect('/dashboard');
+    }
+
+    public function edit($id){
+        $student = Student::findOrFail($id);
+        return view('admin.editUser', compact('student'));
+    }
+
+    public function update(Request $request, $id){
+        $student = Student::findOrFail($id);
+        $student->update([
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'email' => $request->email,
+            'bio' => $request->bio
+        ]);
+        return redirect('/dashboard');
+    }
+
+    public function delete($id){
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return redirect('/dashboard');
+    }
+
+    public function detail($id){
+        $student = Student::findOrFail($id);
+        return view('admin.detailUser', compact('student'));
     }
 }

@@ -106,7 +106,7 @@
                                 <div class="form-group">
                                     <label>Firt Name</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" placeholder="Enter Firt Name" name="firstName">
+                                        <input type="text" class="form-control input-sm" placeholder="Enter Firt Name" name="firstName" required>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                 <div class="form-group">
                                     <label>List Name</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" placeholder="Enter List Name" name="lastName">
+                                        <input type="text" class="form-control input-sm" placeholder="Enter List Name" name="lastName" required>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 <div class="form-group">
                                     <label>Email Address</label>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-sm" placeholder="Enter Email" name="email">
+                                        <input type="email" class="form-control input-sm" placeholder="Enter Email" name="email" required>
                                     </div>
                                 </div>
                             </div>
